@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân</title>
+    <style>
+        #header{
+            width: 100%;
+            background-image: url(anhbia.jpg);
+            background-size: 350px;
+            height: 200px;
+        }
+		.profile {
+  display: flex;
+  align-items: center;
+}
+
+.avatar img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.info h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.info p {
+  font-size: 18px;
+  margin: 0;
+}
+	
+        #left{
+            width: 69%;
+
+            height: 600px;
+            float: left;
+            margin-top: 10px;
+            margin-right: 10px;
+            background-color: white;
+        }
+        #avatar{
+         background-image: url("linhvat.jpg");
+	background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container" style="width:1140px;margin:0px auto;font-family:arial">
+            <div id="header"> </div>
+			<div class="profile">
+  <div class="avatar">
+    <img src="linhvat.jpg" alt="Avatar">
+  </div>
+  <div class="info">
+    <li>Họ và tên: Trần Ngọc Minh</li>
+	<li>Quê quán: Hải Dương </li>
+    <li>Ngày sinh: 12/05/2003</li>
+    <li>Email: abc@example.com</li>
+    <li>SĐT: 0123456789</li>
+
+  </div>
+  <a href="https://www.google.com" target="_blank">Trang chủ của Google</a>
+  <a href="https://www.google.com" target="_blank">Trang chủ của Google</a>
+  <a href="https://www.google.com" target="_blank">Trang chủ của Google</a>
+  <a href="https://www.google.com" target="_blank">Trang chủ của Google</a>
+</div>
+
+        <div>
+            <div id="left">
+                <div id="avatar"></div>
+                <div id="information"></div>
+            </div>
+        </div>
+        <div>
+            <div id="target"><a href="https://www.google.com" target="_blank"></div>
+        </div>
+        <div>
+            <div id="bottom"></div>
+        </div>
+        
+    </div>
+</body>
+</html>

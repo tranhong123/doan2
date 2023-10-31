@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop</title>
+	<style>
+
+	.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  background-color: #333;
+  color: #fff;
+  margin-top: 80px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.menu li {
+  border-bottom: 1px solid #444;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu li a:hover {
+  background-color: #444;
+}
+		body{
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			margin: 0;
+		}
+		h2 {
+			margin-top: 40px;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			max-width: 600px;
+			margin: 20px auto;
+			border: 1px solid #ccc;
+		}
+		th, td {
+			padding: 10px;
+			text-align: left;
+			border: 1px solid #ccc;
+		}
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		tr:hover {
+			background-color: #ddd;
+		}
+		button {
+			background-color: #333;
+			color: #fff;
+			border: none;
+			padding: 10px;
+			cursor: pointer;
+			transition: background-color 0.2s;
+		}
+		button:hover {
+			background-color: #444;
+		}
+		table {
+  margin-top: 80px;
+}
+
+	</style>
+</head>
+<body>
+	<h1>Shop</h1>
+
+<table id="product-table">
+	<!-- product table code here -->
+</table>
+<div class="menu">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+	</div>
+
+
+
+	<table id="product-table">
+		<tr>
+			<th>Product Name</th>
+			<th>Price</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>Product A</td>
+			<td>$10.00</td>
+			<td><button onclick="addToCart('Product A', 10.00)">Add to Cart</button></td>
+		</tr>
+		<tr>
+			<td>Product B</td>
+			<td>$20.00</td>
+			<td><button onclick="addToCart('Product B', 20.00)">Add to Cart</button></td>
+		</tr>
+	</table>
+	<h2>Shopping Cart</h2>
+	<table id="cart-table">
+		<tr>
+			<th>Product Name</th>
+			<th>Price</th>
+			<th></th>
+		</tr>
+	</table>
+	<button onclick="checkout()">Checkout</button>
+
+	<script>
+		let cart = [];
+
+		function addToCart(productName, price) {
+			cart.push({name: productName, price: price});
+			updateCartTable();
+		}
+
+		function removeCartItem(index) {
+			cart.splice(index, 1);
+			updateCartTable();
+		}
+
+		function updateCartTable() {
+			let cartTable = document.getElementById("cart-table");
+			cartTable.innerHTML = "<tr><th>Product Name</th><th>Price</th><th></th></tr>";
+			for (let i = 0; i < cart.length; i++) {
+				let row = cartTable.insertRow(-1);
+				let nameCell = row.insertCell(0);
+				let priceCell = row.insertCell(1);
+				let removeCell = row.insertCell(2);
+				nameCell.innerHTML = cart[i].name;
+				priceCell.innerHTML = "$" + cart[i].price.toFixed(2);
+				removeCell.innerHTML = "<button onclick=\"removeCartItem(" + i + ")\">Remove</button>";
+			}
+		}
+
+		function checkout() {
+			let total = 0;
+			for (let i = 0; i < cart.length; i++) {
+				total += cart[i].price;
+			}
+			alert("Total: $" + total.toFixed(2));
+			cart = [];
+			updateCartTable();
+		}
+		
+	</script>
+</body>
+</html>

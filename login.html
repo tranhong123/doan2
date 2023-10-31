@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giao diện đăng nhập</title>
+    <style>
+        .text{
+            border: 1px solid;
+        }
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+      
+
+      .login-container {
+        width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+      }
+
+      .login-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .login-container label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #cccccc;
+}
+
+      
+
+      .login-container button[type="button"] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .login-container button[type="submit"]:hover {
+        background-color: #3E8E41;
+      }
+
+      .login-container img {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        object-fit: cover;
+      }
+      body {
+  background-image: url('anhnenx.jpg');
+  background-size: cover;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <img src="logoheader.svg" alt="Avatar">
+      <h1>Đăng nhập</h1>
+      <form>
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username">
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password">
+
+        <button type="button" onclick="login()">Đăng nhập</button>
+      </form>
+    </div>
+    <script>
+        function login() {
+          // Lấy giá trị tên đăng nhập và mật khẩu từ biểu mẫu
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+  
+          // Kiểm tra thông tin đăng nhập
+          if (username === "admin" && password === "admin123") {
+            // Nếu đúng, chuyển hướng đến trang HTML khác
+            window.location.href = "Tapluyen.html";
+          } else {
+            // Nếu sai, hiển thị thông báo lỗi
+            alert("Tên đăng nhập hoặc mật khẩu không đúng.");
+          }
+        }
+      </script>
+  </body>
+</html>

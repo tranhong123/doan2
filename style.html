@@ -1,0 +1,253 @@
+<html>
+	<head>
+		<title>Thực phẩm sạch HomeFoody</title>
+		<link rel ="stylesheet" type ="text/css" href ="style.css" />
+		<script src="myscripts.js"></script>
+  <script>
+
+    $(document).ready(function(){
+    //alert("hello word"); Nhap cho bai ban rau cu qua
+    var a = $("#banner").html
+    var b =$("address").text()
+    //$("address").text("address:");
+    //$("banner").html("<b>lo go da bi thay doi</b>")
+    var item = $(".item");I
+    var x = item.children().text();
+    //var x = item.sibling
+    //alert(x);
+	//$("#menu li:first").addClass("actived");
+		$("#menu li").hover(function(){
+			$(this).addClass("actived");
+		}, function(){
+			$(this).removeClass("actived");
+		});
+		var count = 0;
+		$(".item input").click(function(){
+			count += 1;
+			$("#cart").text("Gio hang ("+count+")");
+		})
+		$(".item").hover(function(){
+
+			$(this).children().last().show();
+			
+		}, function(){
+
+			$(this).children().last().hide();
+
+		});
+});
+
+	</script>
+	</head>
+	<body>
+		<div id="container" style="width: 1140px; margin: 0px auto; font-family: Arial">
+			<div id="header"  style="width: 100%; height: 200px; background: pink"  >
+			<div id="top"	style="width: 100%; height: 40px; background: green; color: #FFF">
+				<span>Hotline: </span><span><b>0912188636</b></span>
+				<span id = "address">Địa chỉ: </span><span><b>180 Nguyễn Lương Bằng, Thành phố Hải Dương, Việt Nam</b></span>
+				<div id ="sign-in" style="float: right">
+					<a href="#">Đăng nhập</a>
+					<span> hoặc </span>
+					<a href="#">Đăng ký</a>
+				</div>
+			</div>
+			<div id="banner"	style="width: 100%; height: 120px; background-color: white">
+				<img id="Logo" src="logo1.jpg" alt="Logo" />
+				<a id="cart" href="cat.html.html"> gio hang </a>
+			</div>
+			<div id="menu"	style="width: 100%; height: 40px; background-color: green">
+				<ul>
+					<li> <a href="index.html">Trang chủ</a> </li>
+					<li> <a href="products.html">Sản phẩm</a> </li>
+					<li> <a href="new.html">Tin tức</a> </li>
+					<li>  <a href="intro.html">Giới thiệu</a> </li>
+					<li>  <a href="contact.html">Liên hệ</a> </li>
+				</ul>
+			</div>
+			</div>
+		<div id="main"   style="width: 100%;"  >
+			<div id="slide-show"	style="width: 100%; height: 438px; background-color: pink">
+				<img src="anhbia.jpg" alt="Quảng cáo" />
+			</div>
+			<div id="content"	style="width: 100%; min-height: 360px; background-color: white;">
+				<div class = "cate">
+				<div class = "list-product"></div>
+				<div class = "ad"></div>
+					<h1>Trái cây tươi</h1>
+				</div>
+				<div class = "cate">
+				<div class = "list-product">
+
+					<div class ="item"> 
+						<img class ="item-photo" src="item1.jpg" alt ="chanh dây" />
+						<a href="#"> Chanh leo không hạt</a>
+						<span class=" new-price">400.000đ</span>
+						<span class ="old-price">500.000đ</span>
+						<input type ="button" value="Chon mua" />
+					</div>
+					<div class ="item">
+						<img class ="item-photo" src="item2.jpg" alt ="dưa chuột" />
+						<a href="#"> Dưa chuột Hải Dương</a>
+						<span class=" new-price">50.000đ</span>
+						<span class ="old-price">80.000đ</span>
+						<input type ="button" value="Chon mua" />
+					</div>
+					<div class ="item"> 
+						<img class ="item-photo" src="item3.jpg" alt ="hành tây" />
+						<a href="#"> Hành tây</a>
+						<span class=" new-price">40.000đ</span>
+						<span class ="old-price">60.00đ</span>
+						<input type ="button" value="Chon mua" />
+					</div>
+					<div class ="item last-item"> 
+						<img class ="item-photo" src="item4.jpg" alt ="hồng đỏ mỹ" />
+						<a href="#"> Hồng đỏ Mỹ </a>
+						<span class=" new-price">100.000đ</span>
+						<span class ="old-price">150.000đ</span>
+						<input type ="button" value="Chon mua" />
+					</div>
+					<div class ="item">
+						<img class ="item-photo" src="item1.jpg" alt ="chanh dây" />
+						<a href="#"> Chanh leo không hạt</a>
+						<span class=" new-price">400.000đ</span>				
+					</div>	
+					<div class ="item">
+						<img class ="item-photo" src="item2.jpg" alt ="dưa chuột" />
+						<a href="#"> Dưa chuột Hải Dương</a>
+						<span class=" new-price">50.000đ</span>
+						<span class ="old-price">80.000đ</span>
+					</div>
+					<div class ="item"> 
+						<img class ="item-photo" src="item3.jpg" alt ="hành tây" />
+						<a href="#"> Hành tây</a>
+						<span class=" new-price">40.000đ</span>
+						<span class ="old-price">60.00đ</span>
+					</div>
+					<div class ="item last-item"> 
+						<img class ="item-photo" src="item4.jpg" alt ="hồng đỏ mỹ" />
+						<a href="#"> Hồng đỏ Mỹ </a>
+						<span class=" new-price">100.000đ</span>
+						<span class ="old-price">150.000đ</span>
+					</div>
+						<img src="ad.png" alt ="Quảng cáo 1" />
+				</div>
+		</div>
+		<div id="footer">
+			Bản quyền thuộc về công ty thực phẩm sạch Home Foody Việt Nam
+		</div>
+		</div>
+		<style>
+.phone-mobile {display: none;}
+.giuseart-nav {
+    position: fixed;
+    left: 13px;
+    background: #fff;
+    border-radius: 5px;
+    width: auto;
+    z-index: 150;
+    bottom: 50px;
+    padding: 10px 0;
+    border: 1px solid #f2f2f2;
+}
+.giuseart-nav ul {list-style: none;padding: 0;margin: 0;}
+.giuseart-nav ul li {list-style: none!important;}
+.giuseart-nav ul>li a {
+    border:none;
+    padding: 3px;
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 15px;
+    color: #515151;
+    font-weight: 700;
+    max-width: 72.19px;
+    max-height: 54px;
+    text-decoration: none;
+}
+.giuseart-nav ul>li .chat_animation{display:none}
+.giuseart-nav ul>li a i.ticon-heart {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Google_Maps_icon_%282015-2020%29.svg) no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+.giuseart-nav ul>li a i.ticon-zalo-circle2 {
+    background: url(https://atplink.com/blog/wp-content/uploads/2021/12/anh-bia-Zalo.jpg) no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    display: block;
+}.giuseart-nav li .button {
+    background: transparent;
+}.giuseart-nav ul>li a i {
+    width: 33px;
+    height: 33px;
+    display: block;
+    margin: auto;
+}.giuseart-nav ul li .button .btn_phone_txt {
+    position: relative; top:35px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: none;
+}
+.giuseart-nav ul li .button .phone_animation i {
+    display: inline-block;
+    width: 27px;
+    font-size: 26px;
+    margin-top: 12px;
+}.giuseart-nav ul>li a.chat_animation svg {
+    margin: -13px 0 -20px;
+}
+.giuseart-nav ul>li a i.ticon-messenger {
+    background: url(https://inkythuatso.com/uploads/thumbnails/800/2021/10/logo-messenger-inkythuatso-2-01-30-15-48-06.jpg) no-repeat;
+    background-size: contain;
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+@media only screen and (max-width: 600px){
+.giuseart-nav li .chat_animation{display:block !Important}
+ 
+.giuseart-nav li .button .phone_animation {box-shadow: none;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #6cb917;
+    line-height: 15px;
+    border: 2px solid white;
+}
+.giuseart-nav li {
+    float: left;
+    width: 20%;
+    list-style: none;
+    height: 50px;
+}
+.phone-mobile{display:block !important}}
+</style>
+<div class="giuseart-nav">
+        <ul>
+            <li><a href="#" rel="nofollow" target="_blank"><i class="ticon-heart"></i>Tìm đường</a></li>
+            <li><a href="https://zalo.me/0973471916" rel="nofollow" target="_blank"><i class="ticon-zalo-circle2"></i>Chat Zalo</a></li>
+                        <li class="phone-mobile">
+                            <a href="tel:0973471916" rel="nofollow" class="button">
+                                <span class="phone_animation animation-shadow">
+                                    <i class="icon-phone-w" aria-hidden="true"></i>
+                                </span>
+                                <span class="btn_phone_txt">Gọi điện</span>
+                            </a>
+                        </li>
+                        <li><a href="https://www.messenger.com/t/minh.tnm" rel="nofollow" target="_blank"><i class="ticon-messenger"></i>Messenger</a></li>
+            <li><a href="sms:0973471916" class="chat_animation">
+            <i class="ticon-chat-sms" aria-hidden="true" title="Nhắn tin sms"></i>
+                Nhắn tin SMS</a>
+            </li></a>
+        </ul>
+    </div>
+	</body>
+</html>

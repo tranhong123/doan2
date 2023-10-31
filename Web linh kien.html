@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Giỏ hàng</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-zgLL3L41oTCULH2ZFKjweqxv9XWqVR0pMmL+p1UpNC5wC8zAdih/AGtDdVyh/0pZ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    #main-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#main-menu li {
+  position: relative;
+}
+
+#main-menu li a {
+  padding: 18px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+#main-menu li:hover > .sub-menu {
+  display: block;
+}
+
+#main-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #ffffff;
+  padding: 15px 0;
+  list-style: none;
+  width: 200px;
+  border: 1px solid gray;
+}
+
+#main-menu .sub-menu a {
+  padding: 8px 15px;
+  border-bottom: 1px solid gray;
+}
+
+#main-menu .sub-menu li:hover > a {
+  background-color: #005ec4;
+  color: #ffffff;
+  border-bottom: 1px solid gray;
+}
+
+#main-menu .sub-menu li:last-child a {
+  border: none;
+}
+
+#main-menu .sub-menu .sub-menu {
+  left: 100%;
+  top: 0;
+}
+
+  </style>
+</head>
+<body>
+  <ul id="main-menu">
+    <li>
+      <a href="">Danh mục sản phẩm</a>
+      <ul class="sub-menu">
+        <li><a href="">Menu2.1</a></li>
+        <li><a href="">Menu2.2</a></li>
+        <li><a href="">Menu2.3</a></li>
+        <li><a href="">Menu2.4</a></li>
+        <li>
+          <a href="">Menu2.5</a>
+          <ul class="sub-menu">
+            <li><a href="">Menu2.5.1</a></li>
+            <li><a href="">Menu2.5.2</a></li>
+            <li><a href="">Menu2.5.3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="">Xây dựng cấu hình</a></li>
+    <li><a href="">Laptop Gaming chất</a></li>
+    <li><a href="">Tin tức</a></li>
+  </ul>
+  
+  <div class="container mt-5">
+    <h1>Giỏ hàng</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tên sản phẩm</th>
+          <th scope="col">Số lượng</th>
+          <th scope="col">Đơn giá</th>
+          <th scope="col">Thành tiền</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="4">Tổng tiền</th>
+          <td colspan="2" id="cart-total"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkoutModal">Mua ngay</button>
+      </div>
+    </div><div class="row">
+        <div class="col-md-12 text-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkoutModal">Mua ngay</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkoutModal">Mua ngay</button>
+        </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkoutModalLabel">Thanh toán</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Tên của bạn</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Số điện thoại</label>
+              <input type="tel" class="form-control" id="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="address">Địa chỉ</label>
+              <input type="text" class="form-control" id="address" required>
+            </div>
+            <div class="form-group">
+              <label for="payment">Phương thức thanh toán</label>
+              <select class="form-control" id="payment">
+                <option value="COD">Thanh toán khi nhận hàng</option>
+                <option value="Bank">Chuyển khoản ngân hàng</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary" onclick="submitOrder()">Đặt hàng</button>
+        </div>
+      </div>
+    </div>
+<script>
+    
+</script>    

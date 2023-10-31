@@ -1,0 +1,132 @@
+<html> 
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>Bán hàng quần áo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="HoVaTen.css">
+
+</head>
+<body>
+</header>
+<div class="container" >
+    <div class="item">
+		<h3>Chi tiết sản phẩm</h3>
+		
+        <img src="ao1.jpg" alt="Áo phông">
+		<h7><b>Áo sơ mi nam dài tay phong cách</b></h7>
+        <div class="price">350.000VND</div>
+        <div class="quantity">
+            <button id="decrease">-</button>
+			<span id="quantity">0</span>
+			<button id="increase">+</button>
+        </div>
+        <button class="btn">Chọn mua</button>
+        <div class="total"></div>
+		<div class="color">
+			<p>Chọn màu:</p>
+			<label>
+			  <input type="radio" name="color" value="black" checked>
+			  Đen
+			</label>
+			<label>
+			  <input type="radio" name="color" value="white">
+			  Trắng
+			</label>
+			<label>
+			  <input type="radio" name="color" value="red">
+			  Đỏ
+			</label>
+		  </div>
+		  <div class="size">
+			<p>Chọn size:</p>
+			<label>
+			  <input type="radio" name="size" value="X" checked>
+			  X
+			</label>
+			<label>
+			  <input type="radio" name="size" value="XL">
+			  XL
+			</label>
+			<label>
+			  <input type="radio" name="size" value="M">
+			  M
+			</label>
+			<label>
+				<input type="radio" name="size" value="XXL">
+				XXL
+			  </label>
+
+		  </div>
+		  <div class="images">
+			<button type="radio" data-image="ao1.jpg" onclick="changeImage(this)">Mã 1</button>
+			<button type="radio" data-image="ao2.jpg" onclick="changeImage(this)">Mã 2</button>
+			<button type="radio" data-image="ao3.jpg" onclick="changeImage(this)">Mã 3</button>
+		  </div>
+		  <div class="product-image">
+			<img src="ao2.jpg" alt="Ảnh đổi áo">
+		  </div>
+		  <br></br>
+		  <div id="thongtin">
+			<h2>THÔNG TIN CHI TIẾT</h2>
+			<table cellpadding="15px" cellspacing="0">
+			<tr>
+			<td>Thương hiệu</td>
+			<td>OEM</td>
+			</tr>
+			<tr>
+			<td>Xuất xứ thương hiệu</td>
+			<td class="xam">Việt Nam</td>
+			</tr>
+			<tr>
+			<td>Xuất xứ</td>
+			<td>Việt Nam</td>
+			</tr>
+			<tr>
+			<td>SKU</td>
+			<td class="xam">8457550311407</td>
+			</tr>
+			<tr>
+			<td>Chất liệu</td>
+			<td>Lụa</td>
+			</tr>
+			</table>
+		</div>
+		  <h3>Mô tả sản phẩm</h3>
+		  <h5>Áo sơ mi nam luôn là trang phục lựa chọn hàng đầu cho nhiều chàng trai, bởi sự tiện ích và thời trang mà nó mang lại cho người mặc.</h5>
+		  <h5>Chúng tôi thường xuyên cập nhật những mấu áo sơ mi mới từ kiểu dáng trơn, sọc caro đến sơ mi phối họa tiết..., nhằm giúp khách hàng lựa chọn được những sản phẩm đẹp, chất lượng phù hợp với yêu cầu và sở thích 1 cách dễ dàng nhất</h5>
+		  <img src="ao4.jpg" alt="ảnh 4">
+		  <h5>Giá sản phẩm trên đã bao gồm thuế theo luật thịnh hành. Tuy nhiên tùy vào loại sản phẩm hoặc phương thức, địa chỉ giao hàng mà có thể phát sinh thêm nhiều chi phí khác như phí vận chuyển, phí chuyển hàng cồng kềnh.</h5>
+	</div>
+
+	<script>
+
+		function changeImage(button) {
+		  const imageUrl = button.getAttribute('data-image');
+		  const productImage = document.querySelector('.product-image img');
+		  productImage.src = imageUrl;
+		}
+
+const increaseBtn = document.getElementById('increase');
+const decreaseBtn = document.getElementById('decrease');
+const quantity = document.getElementById('quantity');
+
+
+let count = 0;
+
+
+increaseBtn.addEventListener('click', () => {
+  count++; 
+  quantity.innerHTML = count; 
+});
+
+
+decreaseBtn.addEventListener('click', () => {
+  if (count > 0) { 
+    count--; 
+    quantity.innerHTML = count; 
+  }
+});
+	  </script>
+</html>
