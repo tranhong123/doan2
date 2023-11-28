@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cửa hàng trang sức PNJ</title>
+    <link rel ="stylesheet" href="doan.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+  </head>
+ 
+  <body>
+   
+    <header>
+   
+  
+    </header>
+    
+    <header>
+        <div id="header">
+        <nav class ="containerx">
+        <a href="#">
+          <img src="logoweb.png" alt="logo" width="200px" height="100px">
+        </a> 
+        <ul id="main-menu">
+          <li><a href="">Trang Sức</a>
+            <ul class="sub-menu">
+              <li><a href="">Nhẫn</a>
+                <ul class="sub-menu">
+                    <ul class="sub-menu">   
+                    </ul>
+                  </li> 
+                </ul>
+              </li>
+              <li><a href="">Dây Chuyền</a>
+           
+              </li>
+              <li><a href="">Đồng Hồ</a>
+               
+              <li><a href="">Vòng Cổ</a>
+              
+              <li><a href="">Vòng Tay</a>
+                
+              </li>
+            </ul>
+          </li>
+          <li><a href="">Trang Sức Cưới</a></li>
+          <li><a href="">Quà Tặng</a></li>
+          <li><a href="">Thương Hiệu</a></li>
+       
+      
+
+        <ul id="main-menu">
+          <li><a href=""><img src ="logosignin.png" width="50px" height="50px" ></a>
+            <ul class="sub-menu">
+              <li><a href="signup.html">Đăng Kí</a>
+             <li><a href="login.html">Đăng Nhập</a>                    
+            </ul>                
+          </li>
+     
+           <li><a href=""><img src="logogiohang.jpg" alt="GioHang" width="50px" height="50px"></a>
+            <a id="cart" onclick="showcart()" style="font-size: 15px;cursor: pointer;margin-left: 10px;"><i class="fa-solid fa-cart-plus" style="font-size: 30px;margin-top: 30px;margin-left: 30px;cursor: pointer;position: relative;"></i><h3 class="cartNo" style="position: absolute;"></h3></a>
+         
+           </li>
+           </ul>
+        </nav>
+    </li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.product-detail {
+    display: flex;
+    margin: 20px;
+}
+
+.product-detail img {
+    width: 111px;
+    height: 120px;
+    margin-right: 20px;
+}
+
+.product-detail div {
+    margin-top: 10px;
+}
+
+.product-detail a {
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.product-detail span {
+    margin-left: 75px;
+    display: block;
+}
+
+.product-detail select {
+    margin-left: 10px;
+}
+
+.product-detail p {
+    margin-top: 10px;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.comment span {
+    font-weight: bold;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+    <div class="product-detail">
+        <img src="sp10x.png" width="111px" height="120px" alt="Image 1" style="font-size: 14px; line-height: 14px;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+        <div style="margin-top: 10px;">
+            <a style="font-size: 15px; font-weight: bold; cursor: pointer; margin-left: 20px;">Nhẫn Kim Cương Trắng 18k PNJ 172</a>
+            <br>
+            <span style="margin-left: 75px;">100.000 VND</span>
+
+            <!-- Thêm thông tin về kích thước -->
+            <div style="margin-top: 5px;">
+                <span>Kích thước:</span>
+                <select style="margin-left: 70px;">
+                    <option value="51">51</option>
+                    <option value="52">52</option>
+                    <option value="53">53</option>
+                </select>
+            </div>
+
+            <!-- Thêm thông tin sản phẩm -->
+            <p style="margin-top: 10px;">
+                Mô tả sản phẩm:Vòng tay Vàng 10K đính đá ECZ PNJ Niềm tin XMXMH000111
+                Mã: GVXMXMH000111
+            <br>
+            100.000
+                
+            </p>
+
+            <!-- Nút Mua ngay và ô nhập số lượng -->
+            <div style="margin-top: 10px;">
+            <a href="thanhtoan.html">    <button class="buy-item" style="margin-left: 55px;">Mua ngay</button> </a>
+               <span>Số lượng: <input class="quantity-input" type="number" value="1" min="0"></span>
+                 
+            </div>
+
+            <!-- Phần bình luận -->
+            <div style="margin-top: 20px;">
+                <h2>Bình luận:</h2>
+                <!-- Thêm phần để hiển thị bình luận ở đây -->
+                <!-- Ví dụ: -->
+                <div class="comment">
+                    <span>Người dùng A:</span>
+                    <p>Phản hồi tốt về sản phẩm!</p>
+                </div>
+
+                <!-- Thêm form để người dùng nhập bình luận -->
+                <form>
+                    <label for="comment">Thêm bình luận:</label>
+                    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                    <br>
+                    <button type="submit">Gửi</button>
+                </form>
+                <script>
+                    
+                </script>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+                <div id="footer">
+                    <div class="link-content">
+                        <h3>Thông Tin Liên Hệ</h3>
+                        <ul>
+                         
+                            <li><a href="">Giới thiệu store</a></li>
+                            <li><a href="">Chăm sóc khách hàng</a></li>
+                            <li><a href="">Tin tức</a></li>
+                            <li><a href="">Liên hệ hợp tác</a></li>
+                            <li><a href="">Ý kiến khách hàng</a></li>
+                        </ul>
+                    </div>
+              
+                    <div class="link-content">
+                        <h3>Dịch Vụ - Hỗ Trợ</h3>
+                        <ul>
+                            <li><a href="">Mua hàng trả góp</a></li>
+                            <li><a href="">Chính sách bảo hành</a></li>
+                            <li><a href="">Chính sách bảo mật</a></li>
+                            <li><a href="">Chính sách giải quyết khiếu nại</a></li>
+                            <li><a href="">Câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+              
+                    <div class="link-content">
+                        <h3>Thông tin khuyến mãi</h3>
+                        <ul>
+                            <li><a href="">Sản phẩm bán chạy</a></li>
+                            <li><a href="">Sản phẩm khuyến mãi</a></li>
+                            <li><a href="">Hàng thanh lý</a></li>
+                            <li><a href="">Liên hệ khối văn phòng</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-content">
+                      <div class="icon">
+                        <h3>Follow us</h3>
+                        <a href="https://www.instagram.com/tnmminh/" >
+                          <img src="icon1.jpg" width="50px" height="50px">
+                        </a>
+                        <a href="https://www.facebook.com/minh.tnm/" >
+                          <img src="icon2.jpg" width="50px" height="50px">
+                        </a>
+                        <a href="https://www.facebook.com/minh.tnm/" >
+                          <img src="icon3.jpg" width="50px" height="50px">
+                        </a>
+                        </div>
+                        
+              
+                        <div class="footer-bottom">
+                          <div class="footer-banquyen">
+                              <div class="banquyen" style="font-size: 20px; color: #ffffff;">Bản quyền của Công ty TNHH Thương mại & Tin học Tú Nguyệt</div>
+                          </div>
+                      </div>
+                    </div>
+                    <script src="doan.js"></script>
+                    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>   
+                </body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+<head>
+    <meta charset="UTF-8">
+    <title>admin </title>
+    <link rel ="stylesheet" href="Admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    </head>
+    <body>
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <h2><span class="lab la-book-tanakh"></span><span>Admin</span></h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="Admin.html";="active"><span class="las la-igloo"></span>
+                            <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="quantrivien.html"><span class="las la-users"></span>
+                            <span>Quản trị viên</span></a>
+                    </li>
+                    <li>
+                        <a href="sanpham.html"><span class="las la-book-open"></span>
+                            <span>Sản Phẩm</span></a>
+                    </li>
+                    <li>
+                        <a href="baiviet.html"><span class="bx bxs-book-add" ></span>
+                            <span>Quản lý bài viết</span></a>
+                    </li>
+           
+                    <li>
+                        <a href="nhanvien.html"><span class="las la-user-circle"></span>
+                            <span>Nhân viên</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span class="bx bx-news"></span>
+                            <span>Tin tức</span></a>
+                    </li>
+                    <li>
+                        <a href="Doanh thu.html"><span class="bx bxs-bar-chart-alt-2"></span>
+                            <span>Thống kê</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+          
+            <header>
+                    <h2>
+                        <label for="nav-toggle">
+                            <span class="las la-bars"></span>
+                        </label>
+                        Bảng điều khiển
+                    </h2>
+                    <div class="search-wrapper">
+                        <span class="la la-search"></span>
+                        <input type="search" placeholder="Search here" />
+                    </div>
+                    <div class="user-wrapper">
+                        <img src="anhnenx.jpg" width="40px" height="40px" alt=""/>
+                        <div>
+                            <h4>Ngoc Minh</h4>
+                            <small>Admin</small>
+                        </div>
+                    </div>
+            
+            </header>
+            <main>
+                <style>
+                    #adminPanel {
+                        margin-top: 20px;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>Doanh Thu Công Tác Viên</h1>
+                    <div id="chartContainerWrapper">
+                        <canvas id="chartContainer" width="800" height="400"></canvas>
+                    </div>
+            
+                    <div id="adminPanel">
+                        <h2>Quản trị viên - Thêm doanh thu mới</h2>
+                        <label for="salesperson">Chọn công tác viên:</label>
+                        <select id="salesperson">
+                            <option value="Trần Ngọc A">Trần Ngọc A</option>
+                            <option value="Trần Ngọc B">Trần Ngọc B</option>
+                            <option value="Trần Ngọc C">Trần Ngọc C</option>
+                            <option value="Trần Ngọc D">Trần Ngọc D</option>
+                        </select>
+            
+                        <label for="month">Chọn tháng:</label>
+                        <select id="month">
+                            <option value="0">Tháng 1</option>
+                            <option value="1">Tháng 2</option>
+                            <option value="2">Tháng 3</option>
+                            <option value="3">Tháng 4</option>
+                      
+                        </select>
+            
+                        <label for="revenue">Nhập doanh thu:</label>
+                        <input type="number" id="revenue" />
+            
+                        <button onclick="addRevenue()">Thêm Doanh Thu</button>
+                    </div>
+                </div>
+            
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script src="data.js"></script>
+                <script src ="chart.js"></script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        updateChart();
+                    });
+            
+                    function addRevenue() {
+                        const salespersonSelect = document.getElementById("salesperson");
+                        const monthSelect = document.getElementById("month");
+                        const revenueInput = document.getElementById("revenue");
+            
+                        const salesperson = salespersonSelect.value;
+                        const monthIndex = parseInt(monthSelect.value);
+                        const revenue = parseInt(revenueInput.value);
+            
+                        if (!isNaN(revenue)) {
+                            // Cập nhật dữ liệu
+                            salesData[salesperson][monthIndex] = revenue;
+            
+                            // Cập nhật biểu đồ
+                            updateChart();
+                        } else {
+                            alert("Vui lòng nhập một số hợp lệ cho doanh thu.");
+                        }
+                    }
+            
+                    function updateChart() {
+                        const ctx = document.getElementById("chartContainer").getContext("2d");
+            
+                        // Xóa biểu đồ hiện tại
+                        if (myChart) {
+                            myChart.destroy();
+                        }
+            
+                        // Tạo biểu đồ mới
+                        myChart = new Chart(ctx, {
+                            type: "line",
+                            data: {
+                                labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4"],
+                                datasets: Object.keys(salesData).map(function(key) {
+                                    return {
+                                        label: key,
+                                        data: salesData[key],
+                                        borderColor: getRandomColor(),
+                                        fill: false
+                                    };
+                                })
+                            }
+                        });
+                    }
+            
+                    function getRandomColor() {
+                        const letters = "0123456789ABCDEF";
+                        let color = "#";
+                        for (let i = 0; i < 6; i++) {
+                            color += letters[Math.floor(Math.random() * 16)];
+                        }
+                        return color;
+                    }
+                </script>
+</main>
+</body>
+</html>

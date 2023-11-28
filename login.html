@@ -69,7 +69,7 @@
         object-fit: cover;
       }
       body {
-  background-image: url('anhnenx.jpg');
+  background-image: url('hinhnen2.jpg');
   background-size: cover;
 }
 
@@ -78,7 +78,7 @@
   </head>
   <body>
     <div class="login-container">
-      <img src="logoheader.svg" alt="Avatar">
+      <img src="logoweb.png" alt="Avatar" style="height: auto;  width: 50%;">
       <h1>Đăng nhập</h1>
       <form>
         <label for="username">Tên đăng nhập:</label>
@@ -98,13 +98,17 @@
   
           // Kiểm tra thông tin đăng nhập
           if (username === "admin" && password === "admin123") {
-            // Nếu đúng, chuyển hướng đến trang HTML khác
-            window.location.href = "Tapluyen.html";
-          } else {
-            // Nếu sai, hiển thị thông báo lỗi
-            alert("Tên đăng nhập hoặc mật khẩu không đúng.");
-          }
+    // Nếu đúng, chuyển hướng đến trang HTML cho admin
+    window.location.href = "Admin.html";
+} else if (username === "user" && password === "user123") {
+    // Nếu đúng, chuyển hướng đến trang HTML cho user
+    window.location.href = "Practice1-1.htm";
+} else {
+    // Nếu sai, hiển thị thông báo lỗi
+    alert("Tên đăng nhập hoặc mật khẩu không đúng.");
+}
         }
+        
       </script>
   </body>
 </html>

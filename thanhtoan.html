@@ -1,108 +1,276 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Thanh toán</title>
-  <style>
-    /* CSS cho giao diện thanh toán */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-    }
-    
-    form {
-      background-color: #fff;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    h2 {
-      margin-top: 0;
-      text-align: center;
-    }
-    
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
-    
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select {
-      width: 95%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: none;
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-        
-    input[type="submit"] {
-      background-color: #4CAF50;
-      color: #fff;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer; /* Biến con trỏ chuột thành hình bàn tay*/
-      display:block;
-      width:100%;
-    }   
-    
-    input[type="submit"]:hover {
-      background-color: #3e8e41;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
 
-    input[type="submit1"]{
-      background-color: #fff;
-      color: black;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer; /* Biến con trỏ chuột thành hình bàn tay*/
-      display:block;
-      width:97%;
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
   }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
 
+.modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 300px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
 
-  </style>
+   
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .modal-content {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .modal-logo {
+        width: 50px; /* Điều chỉnh kích thước logo theo mong muốn */
+        height: 50px;
+        margin-bottom: 10px;
+    }
+    
+</style>
+
 </head>
 <body>
-  <form id="thanhtoan">
-    <h2>Thanh toán</h2>
-    <label for="name">Họ và tên:</label>
-    <input type="text" id="name" name="name" required>
-    
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    
-    <label for="phone">Số điện thoại:</label>
-    <input type="tel" id="phone" name="phone" required>
-    
-    <label for="card">Số thẻ:</label>
-    <input type="text" id="card" name="card" required>
-    
-    <label for="expiry">Ngày hết hạn:</label>
-    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
-    
-    <label for="cvv">CVV:</label>
-    <input type="text" id="cvv" name="cvv" required>
-    
-    <input type="submit" value="Mua Hàng">
-    <br></br>
-    <input type="submit1" value="Viết đánh giá">
-  </form>
 
+<h2>Thông tin thanh toán</h2>
+<p>Chỉ áp dụng cho thanh toán bằng thẻ!</p>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Thông tin cá nhân</h3>
+            <label for="fname"><i class="fa fa-user"></i> Họ và tên</label>
+            <input type="text" id="fname" name="firstname" placeholder="Trần Ngọc A">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="abc@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Địa chỉ</label>
+            <input type="text" id="adr" name="address" placeholder="Địa chỉ hiện tại">
+            <label for="city"><i class="fa fa-institution"></i> Thành Phố</label>
+            <input type="text" id="city" name="city" placeholder="Nhập thành phố đang ở">
+
+            <div class="row">
+              <div class="col-50">
+                
+              </div>
+              <div class="col-50">
+       
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="Tên của chủ thẻ">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="Dãy 12-16 số của thẻ">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="Hạn sử dụng của thẻ">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="Năm hết hạn">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="3 số ở sau thẻ">
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Địa chỉ giao hàng giống như địa chỉ thanh toán
+        </label>
+        <div id="successModal" class="modal">
+          <div class="modal-content">
+              <img src="ok.jpg" alt="Logo" class="modal-logo">
+              <h2>Thanh toán thành công</h2>
+              <h3>Đơn hàng đang được gửi tới chỗ bạn</h3>
+          </div>
+      </form>
+    </div>
+  </div>
+  <div style="margin-top: 10px;">
+    <!-- Nút thanh toán -->
+    <input type="submit" value="Tiếp tục thanh toán" class="btn" onclick="showSuccessModal()">
+</div>
+
+<!-- Modal (Thông báo) -->
+
+</div>
+
+   <!--
+  <div class="col-25">
+    <img src="sp10x.png" width="111px" height="120px" alt="Image 1" style="font-size: 14px; line-height: 14px;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+    <div style="margin-top: 10px;">
+        <a style="font-size: 15px; font-weight: bold; cursor: pointer; margin-left: 20px;">Nhẫn Kim Cương Trắng 18k PNJ 172</a>
+        <br>
+        <span style="margin-left: 75px;">100.000 VND</span>
+
+        Thêm thông tin về kích thước 
+        <div style="margin-top: 5px;">
+            <span>Kích thước:</span>
+            <select style="margin-left: 70px;">
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+            </select>
+        </div>
+
+        Thêm thông tin sản phẩm 
+        <p style="margin-top: 10px;">
+            Mô tả sản phẩm:Vòng tay Vàng 10K đính đá ECZ PNJ Niềm tin XMXMH000111
+            Mã: GVXMXMH000111
+        <br>
+        100.000
+            
+        </p>
+
+         Nút Mua ngay và ô nhập số lượng 
+        <div style="margin-top: 10px;">
+        <a href="thanhtoan.html">    <button class="buy-item" style="margin-left: 55px;">Mua ngay</button> </a>
+           <span>Số lượng: <input class="quantity-input" type="number" value="1" min="0"></span>
+             
+        </div>-->
+  </div>
+</div>
 <script>
-document.querySelector('#thanhtoan').addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Mua hàng thành công!');
-});
+
+    function showSuccessModal() {
+        // Lấy tham chiếu đến modal và hiển thị nó
+        var modal = document.getElementById('successModal');
+        modal.style.display = 'block';
+
+   
+        setTimeout(function () {
+            modal.style.display = 'none';
+        }, 2000);
+    }
+  
 </script>
-
 </body>
-
 </html>

@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>admin </title>
+    <link rel ="stylesheet" href="Admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    </head>
+    <body>
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <h2><span class="lab la-book-tanakh"></span><span>Admin</span></h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a class="active"><span class="las la-igloo"></span>
+                            <span>Bảng điều khiển</span></a>
+                    </li>
+                    <li>
+                        <a href="quantrivien.html"><span class="las la-users"></span>
+                            <span>Quản trị viên</span></a>
+                    </li>
+                    <li>
+                        <a href="sanpham.html"><span class="las la-book-open"></span>
+                            <span>Sản Phẩm</span></a>
+                    </li>
+                    <li>
+                        <a href="baiviet.html"><span class="bx bxs-book-add" ></span>
+                            <span>Quản lý bài viết</span></a>
+                    </li>
+           
+                    <li>
+                        <a href="nhanvien.html"><span class="las la-user-circle"></span>
+                            <span>Nhân viên</span></a>
+                    </li>
+                    <li>
+                        <a href=""><span class="bx bx-news"></span>
+                            <span>Tin tức</span></a>
+                    </li>
+                    <li>
+                        <a href="Doanh thu.html"><span class="bx bxs-bar-chart-alt-2"></span>
+                            <span>Thống kê</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header>
+                    <h2>
+                        <label for="nav-toggle">
+                            <span class="las la-bars"></span>
+                        </label>
+                        Bảng điều khiển
+                    </h2>
+                    <div class="search-wrapper">
+                        <span class="la la-search"></span>
+                        <input type="search" placeholder="Search here" />
+                    </div>
+                    <div class="user-wrapper">
+                        <img src="anhnenx.jpg" width="40px" height="40px" alt="" id="logoutButton">
+
+                        <!-- Logout options -->
+                        <div class="logout-options" id="logoutOptions">
+                            <p><a href="Practice1-1.htm">Đăng xuất</a></p>
+                     
+                        </div>
+                        <div>
+                            <h4>Ngoc Minh</h4>
+                            <small>Admin</small>
+                        </div>
+                    </div>
+            
+            </header>
+            <main>
+                <div class="cards">
+                    <div class="card-single">
+                        <diV>
+                            <h1>12</h1>
+                            <span>Quản trị viên</span>
+                        </diV>
+                        <div>
+                            <span class="las la-user"></span>
+
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <diV>
+                            <h1>4</h1>
+                            <span>Dự án</span>
+                        </diV>
+                        <div>
+                            <span class="las la-clipboard"></span>
+
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <diV>
+                            <h1>8.250.000VND</h1>
+                            <span>Doanh số bán hàng</span>
+                        </diV>
+                        <div>
+                         
+
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <diV>
+                            <h1>700.700VND</h1>
+                            <span>Hoa Hồng</span>
+                        </diV>
+                        <div>
+                            <span class="las la-google-wallet"></span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-grid">
+                    <div class="poprojects">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Đối tác gần đây</h3>
+                                <button>Xem tất cả <span class="la las-arrow-right"></span></button>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table width="100%">
+                                        <thead>
+                                            <tr>
+                                                <td>Tên đối tác</td>
+                                                <td>Ngày tham gia</td>
+                                                <td>Sản phẩm</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Trần Ngọc A</td>
+                                                <td>12-5-2021</td>
+                                                <td>
+                                                    <span class="status purple"></span>
+                                                    Trang sức (Nhẫn)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trần Ngọc B</td>
+                                                <td>12-5-2021</td>
+                                                <td>
+                                                    <span class="status pink"></span>
+                                                    Trang sức (vòng)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trần Ngọc C</td>
+                                                <td>10-8-2021</td>
+                                                <td>
+                                                    <span class="status orange"></span>
+                                                    Trang sức (Lắc)
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trần Ngọc D</td>
+                                                <td>1-1-2020</td>
+                                                <td>
+                                                    <span class="status purple"></span>
+                                                    Trang sức (Lắc)
+                                                </td>
+                                            </tr>
+                                              
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="customers">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Quản trị viên</h3>
+                                <button>Xem tất cả <div class="span la las-arrow-right"></div></button>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="customer">
+                                    <div class="info">
+                                        <img src="avtx2.jpg" alt="" width="40px" height="40px"/>
+                                        <div>
+                                            <h4>Elon Musk</h4>
+                                            <small>CEO </small>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="contact">
+                                        <span class="las la-user-circle"></span>
+                                        <span class="las la-comment"></span>
+                                        <span class="las la-phone"></span>
+                                    </div>
+                                </div> 
+                                <div class="customer">
+                                    <div class="info">
+                                        <img src="avtx.jpg" alt="" width="40px" height="40px"/>
+                                        <div>
+                                            <h4>Dollar Cuong</h4>
+                                            <small>Web Design</small>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="contact">
+                                        <span class="las la-user-circle"></span>
+                                        <span class="las la-comment"></span>
+                                        <span class="las la-phone"></span>
+                                    </div>
+                                </div> 
+                                <div class="customer">
+                                    <div class="info">
+                                        <img src="avtx3.jpg" alt="" width="40px" height="40px"/>
+                                        <div>
+                                            <h4>Vuong Nhat</h4>
+                                            <small>CTV</small>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="contact">
+                                        <span class="las la-user-circle"></span>
+                                        <span class="las la-comment"></span>
+                                        <span class="las la-phone"></span>
+                                    </div>
+                                </div> 
+                               
+                                 </div>                            
+                            </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+    </body>
+    <script>
+        // Get the image and logout options elements
+        var logoutButton = document.getElementById('logoutButton');
+        var logoutOptions = document.getElementById('logoutOptions');
+    
+        // Add a click event listener to the image
+        logoutButton.addEventListener('click', function() {
+            // Toggle the display of logout options
+            if (logoutOptions.style.display === 'block') {
+                logoutOptions.style.display = 'none';
+            } else {
+                logoutOptions.style.display = 'block';
+            }
+        });
+    
+        // Close the logout options if clicked outside of it
+        document.addEventListener('click', function(event) {
+            if (!logoutOptions.contains(event.target) && event.target !== logoutButton) {
+                logoutOptions.style.display = 'none';
+            }
+        });
+    </script>
+</html>

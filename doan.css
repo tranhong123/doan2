@@ -16,6 +16,10 @@
         padding: 10px;
         text-align: center;
       }
+      .product-item{
+        margin-left: auto;
+      }
+      
       /* Style the search box */
 #mySearch {
   width: 30%;
@@ -40,10 +44,7 @@
   display: block
 }
 
-#myMenu li a:hover {
-  background-color: #eee;
-}
- 
+
       
 
       
@@ -91,9 +92,11 @@ line-height:14px;
 }
 .product{
   display: flex;
+
 }
 .product-item{
   border: 1px solid #ccc;
+  grid-area: auto;
 }
 a.product-name {
   text-decoration: none;
@@ -102,7 +105,19 @@ ul {
   list-style: none;
 }
 
-
+.product-top{
+  background-color:
+#ffffff;
+color:
+#333333;
+font-size:
+14px;
+grid-area:
+auto;
+line-height:
+20px;
+padding:15px;
+}
 
 
 .buy-item {
@@ -130,7 +145,11 @@ ul {
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
   color: #FFFFFF;
 }
-
+.percent a {
+  color: white;
+  background-color: red;
+  /* Các thuộc tính CSS khác tùy ý */
+}
 
 .text{
 
@@ -241,14 +260,8 @@ header .logo1{
  float: right;
  
 }
-header .a{
-  width: 30%;
-  float: left;
-}
-.container{
-  max-width: 960px;
-  margin: 0px auto;
-}
+
+
 nav{
   display: flex;
   justify-content: space-between;
@@ -268,6 +281,7 @@ nav{
   padding: 18px 20px;
   text-decoration: none;
   display: block;
+  
 }
 #main-menu ul.sub-menu{
   position: absolute;
@@ -321,12 +335,7 @@ margin:
 width: 72px;
 height: 32px;
 }
-span .percent{
-  color: #ffffff;
-  font-weight: 700;
-  line-height: 16px;
 
-}
  a {
   color:
 #29324e;
@@ -385,6 +394,73 @@ header {
   position: fixed;
 }
 
-html {
+.html {
   scroll-behavior: smooth;
+}
+#showcart{
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding-top: 30px;
+  z-index: 999;
+
+
+}
+#showcart h2{
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #333;
+}
+#showcart table{
+
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#showcart th, #showcart td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+#showcart table thead tr th:first-child{
+  text-align: left;
+}
+#showcart table tbody tr td:last-child{
+  text-align: right;
+}
+#showcart table thead tr th:last-child{
+  text-align: right;
+}
+#showcart table tr td{
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+#showcart{
+  position: fixed;
+  height: 100vh;
+  width: 400px;
+  right: 0;
+  top: 0;
+  background: #fff;
+  padding: 12px 20px;
+  overflow-y: scroll;
+}
+
+#showcart input[type="button"] {
+  border-radius: 5px;
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: #e44d26; /* Màu cam đậm */
+  color: #fff;
+}
+
+#showcart input[type="button"]:hover {
+  background-color: #333; /* Màu đen */
+  color: #fff;
 }
