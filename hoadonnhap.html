@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>admin </title>
+    <link rel ="stylesheet" href="Admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    </head>
+
+    <body>
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <h2><span class="lab la-book-tanakh"></span><span>Admin</span></h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="Admin.html";="active"><span class="las la-igloo"></span>
+                            <span>Bảng điều khiển</span></a>
+                    </li>
+               
+                    <li>
+                        <a href="sanpham.html"><span class="las la-book-open"></span>
+                            <span>Sản Phẩm</span></a>
+                    </li>
+                    <li>
+                        <a href="baiviet.html"><span class="bx bxs-book-add" ></span>
+                            <span>Quản lý bài viết</span></a>
+                    </li>
+                    <li>
+                        <a href="khachhang.html"><span class="las la-user-circle"></span>
+                            <span>Khách hàng</span></a>
+                    </li>
+                    <li>
+                        <a href="nhanvien.html"><span class="las la-user-circle"></span>
+                            <span>Nhân viên</span></a>
+                    </li>
+                    <li>
+                        <a href="tintuc.html"><span class="bx bx-news"></span>
+                            <span>Tin tức</span></a>
+                    </li>
+                    <li>
+                        <a href="hoadonnhap.html"><span class="bx bx-notepad"></span>
+                            <span>Hóa đơn nhập</span></a>
+                    </li>
+                    <li>
+                        <a href="hoadonban.html"><span class="bx bx-notepad"></span>
+                            <span>Hóa đơn bán</span></a>
+                    </li>
+                    <li>
+                        <a href="Doanh thu.html"><span class="bx bxs-bar-chart-alt-2"></span>
+                            <span>Thống kê</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+          
+            <header>
+                    <h2>
+                        <label for="nav-toggle">
+                            <span class="las la-bars"></span>
+                        </label>
+                        Bảng điều khiển
+                    </h2>
+                    <div class="search-wrapper">
+                        <span class="la la-search"></span>
+                        <input type="search" placeholder="Search here" />
+                    </div>
+                    <div class="user-wrapper">
+                        <img src="anhnenx.jpg" width="40px" height="40px" alt=""/>
+                        <div>
+                            <h4>Ngoc Minh</h4>
+                            <small>Admin</small>
+                        </div>
+                    </div>
+            
+            </header>
+            <main>
+                
+                <head>
+                    <title>Quản lý hóa đơn nhập hàng</title>
+
+                    <style>
+                        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+   
+   
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        #button{
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+                    </style>
+                </head>
+                <body>
+                    <h1>Quản lý hóa đơn nhập hàng</h1>
+                    <div class ="left">
+                    <form id="invoiceForm">
+                        <label for="invoiceId">Mã hóa đơn:</label><br>
+                        <input type="text" id="invoiceId" name="invoiceId"><br>
+                        <label for="invoiceContent">Nội dung hóa đơn:</label><br>
+                        <input type="text" id="invoiceContent" name="invoiceContent"><br>
+                        <label for="invoiceDate">Ngày nhập hàng:</label><br>
+                        <input type="date" id="invoiceDate" name="invoiceDate"><br>
+                        <label for="invoiceStatus">Tình trạng hàng:</label><br>
+                        <input type="text" id="invoiceStatus" name="invoiceStatus"><br>
+                        <label for="invoiceWarranty">Thời gian bảo hành:</label><br>
+                        <input type="text" id="invoiceWarranty" name="invoiceWarranty"><br>
+                        <input type="button" id="button" value="Thêm hóa đơn" onclick="addInvoice()">
+                    </form>
+                </div>
+                    <table id="invoiceTable">
+                        <tr>
+                            <th>Mã hóa đơn</th>
+                            <th>Nội dung</th>
+                            <th>Ngày nhập hàng</th>
+                            <th>Tình trạng hàng</th>
+                            <th>Thời gian bảo hành</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </table>
+                    <script>
+                        let invoices = [];
+                
+                        function addInvoice() {
+                            let invoiceId = document.getElementById("invoiceId").value;
+                            let invoiceContent = document.getElementById("invoiceContent").value;
+                            let invoiceDate = document.getElementById("invoiceDate").value;
+                            let invoiceStatus = document.getElementById("invoiceStatus").value;
+                            let invoiceWarranty = document.getElementById("invoiceWarranty").value;
+                            invoices.push({id: invoiceId, content: invoiceContent, date: invoiceDate, status: invoiceStatus, warranty: invoiceWarranty});
+                            displayInvoices();
+                        }
+                
+                        function editInvoice(index) {
+                            let invoiceId = prompt("Sửa mã hóa đơn:", invoices[index].id);
+                            let invoiceContent = prompt("Sửa nội dung hóa đơn:", invoices[index].content);
+                            let invoiceDate = prompt("Sửa ngày nhập hàng:", invoices[index].date);
+                            let invoiceStatus = prompt("Sửa tình trạng hàng:", invoices[index].status);
+                            let invoiceWarranty = prompt("Sửa thời gian bảo hành:", invoices[index].warranty);
+                            invoices[index] = {id: invoiceId, content: invoiceContent, date: invoiceDate, status: invoiceStatus, warranty: invoiceWarranty};
+                            displayInvoices();
+                        }
+                
+                        function deleteInvoice(index) {
+                            invoices.splice(index, 1);
+                            displayInvoices();
+                        }
+                
+                        function displayInvoices() {
+                            let table = document.getElementById("invoiceTable");
+                            table.innerHTML = "<tr><th>Mã hóa đơn</th><th>Nội dung</th><th>Ngày nhập hàng</th><th>Tình trạng hàng</th><th>Thời gian bảo hành</th><th>Thao tác</th></tr>";
+                            for(let i = 0; i < invoices.length; i++) {
+                                let row = table.insertRow(-1);
+                                let cell1 = row.insertCell(0);
+                                let cell2 = row.insertCell(1);
+                                let cell3 = row.insertCell(2);
+                                let cell4 = row.insertCell(3);
+                                let cell5 = row.insertCell(4);
+                                let cell6 = row.insertCell(5);
+                                cell1.innerHTML = invoices[i].id;
+                                cell2.innerHTML = invoices[i].content;
+                                cell3.innerHTML = invoices[i].date;
+                                cell4.innerHTML = invoices[i].status;
+                                cell5.innerHTML = invoices[i].warranty;
+                                cell6.innerHTML = "<button onclick='editInvoice("+i+")'>Sửa</button><button onclick='deleteInvoice("+i+")'>Xóa</button>";
+                            }
+                        }
+                    </script>
+                </body>
+            </main>

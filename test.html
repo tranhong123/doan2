@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Cửa hàng trang sức PNJ</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin </title>
     <link rel ="stylesheet" href="doan.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
-  </head>
- 
-  <body>
-   
-    <header>
-   
-  
-    </header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+       
+
     
     <header>
+   
         <div id="header">
         <nav class ="containerx">
         <a href="#">
@@ -58,271 +58,308 @@
      
            <li><a href=""><img src="logogiohang.jpg" alt="GioHang" width="50px" height="50px"></a>
             <a id="cart" onclick="showcart()" style="font-size: 15px;cursor: pointer;margin-left: 10px;"><i class="fa-solid fa-cart-plus" style="font-size: 30px;margin-top: 30px;margin-left: 30px;cursor: pointer;position: relative;"></i><h3 class="cartNo" style="position: absolute;"></h3></a>
-            <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
-            
-<ul id="myMenu">
-    <li><p>nhẫn kim cương trắng</p><a href=""><img src="sp10x.png" width=" 50px" height="50px"></a></li>
-<li><p>nhẫn kim cương</p><a href=""><img src="sp11x.png" width=" 50px" height="50px"></a></li>
-<li><p>Nhẫn vàng</p> <a href=""><img src="sp12x.png" width=" 50px" height="50px"></a></li>
-<li><p>Vòng vàng</p> <a href=""><img src="sp20x.png" width=" 50px" height="50px"></a></li>
-</ul>
-  
-          
-           </li>
-           </ul>
-        </nav>
-    </li>
+        </li>
+    </ul>
+ </nav>
+</li>
 </ul>
 </nav>
 </div>
 </header>
-<main>
+  <main>
     <style>
-        body {
-    font-family: Arial, sans-serif;
-}
+        .progress-bar {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            color: gray;
+            position: relative;
+        }
 
-.product-detail {
-    display: flex;
+        .progress-bar::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, red 39%, gray 0%);
+            width: 100%;
+        }
+
+        .progress-bar li {
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-bar img {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+
+        li {
+            text-align: center;
+            position: relative;
+        }
+
+        .las.la-igloo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        h2{
+            margin-top: 10px;
+        }
+  /* Áp dụng chỉ cho div có class là "product-info" */
+.product-info {
     margin: 20px;
-}
-
-.product-detail img {
-    width: 111px;
-    height: 120px;
-    margin-right: 20px;
-}
-
-.product-detail div {
-    margin-top: 10px;
-}
-
-.product-detail a {
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
-}
-
-.product-detail span {
-    margin-left: 75px;
-    display: block;
-}
-
-.product-detail select {
-    margin-left: 10px;
-}
-
-.product-detail p {
-    margin-top: 10px;
-}
-
-.comment {
+    padding: 20px;
     border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Tùy chỉnh cho phần tử p bên trong div.product-info */
+.product-info p {
+    font-size: 18px; /* Tăng kích thước chữ */
+    line-height: 1.6;
+    color: #333;
+    margin-top: 15px;
     padding: 10px;
+}
+
+/* Tùy chỉnh cho hình ảnh bên trong div.product-info */
+.product-info img {
     margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước của div */
+    height: auto;
 }
 
-.comment span {
-    font-weight: bold;
-}
-
-form {
-    margin-top: 20px;
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-form textarea {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-form button {
+/* Tùy chỉnh cho nút bên trong div.product-info */
+.product-info button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px;
+    padding: 12px 20px; /* Tăng padding */
+    margin: 10px 5px; /* Tăng margin */
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-form button:hover {
+/* Hover effect cho nút bên trong div.product-info */
+.product-info button:hover {
     background-color: #45a049;
 }
-/* Style the search box */
-#mySearch {
-  width: 100%;
-  font-size: 18px;
-  padding: 11px;
-  border: 1px solid #ddd;
-}
 
-/* Style the navigation menu */
-#myMenu {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
 
-/* Style the navigation links */
-#myMenu li a {
-  padding: 12px;
-  text-decoration: none;
-  color: black;
-  display: block
-}
-
-#myMenu li a:hover {
-  background-color: #eee;
-}
 
     </style>
-    <div class="product-detail">
-        <img src="sp10x.png" width="111px" height="120px" alt="Image 1" style="font-size: 14px; line-height: 14px;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
-        <div style="margin-top: 10px;">
-            <a style="font-size: 15px; font-weight: bold; cursor: pointer; margin-left: 20px;">Nhẫn Kim Cương Trắng 18k PNJ 172</a>
+</head>
+<body>
+    <h2>Bạn đã đặt hàng thành công, vui lòng chờ đợi để được nhận hàng!</h2>
+    <ul class="progress-bar">
+        <li>
+            <span class="las la-igloo"></span>
             <br>
-            <span style="margin-left: 75px;">100.000 VND</span>
-
-            <!-- Thêm thông tin về kích thước -->
-            <div style="margin-top: 5px;">
-                <span>Kích thước:</span>
-                <select style="margin-left: 70px;">
-                    <option value="51">51</option>
-                    <option value="52">52</option>
-                    <option value="53">53</option>
-                </select>
-            </div>
-
-            <!-- Thêm thông tin sản phẩm -->
-            <p style="margin-top: 10px;">
-                Mô tả sản phẩm:Vòng tay Vàng 10K đính đá ECZ PNJ Niềm tin XMXMH000111
-                Mã: GVXMXMH000111
+            Đặt hàng
+        </li>
+        <li>
+            <span class="las la-igloo"></span>
             <br>
-            100.000
-                
-            </p>
-
-            <!-- Nút Mua ngay và ô nhập số lượng -->
-            <div style="margin-top: 10px;">
-            <a href="thanhtoan.html">    <button class="buy-item" style="margin-left: 55px;">Mua ngay</button> </a>
-               <span>Số lượng: <input class="quantity-input" type="number" value="1" min="0"></span>
-                 
-            </div>
-
-            <!-- Phần bình luận -->
-            <div style="margin-top: 20px;">
-                <h2>Bình luận:</h2>
-                <!-- Thêm phần để hiển thị bình luận ở đây -->
-                <!-- Ví dụ: -->
-                <div class="comment">
-                    <span>Người dùng A:</span>
-                    <p>Phản hồi tốt về sản phẩm!</p>
-                </div>
-
-                <!-- Thêm form để người dùng nhập bình luận -->
-                <form>
-                    <label for="comment">Thêm bình luận:</label>
-                    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
-                    <br>
-                    <button type="submit">Gửi</button>
-                </form>
-                <script>
-                    
-                </script>
-            </div>
+            Đã xác nhận
+        </li>
+        <li>
+            <span class="las la-igloo"></span>
+            <br>
+            Chờ lấy hàng
+        </li>
+        <li>
+            <span class="las la-igloo"></span>
+            <br>
+            Đang giao hàng
+        </li>
+        <li>
+            <span class="las la-igloo"></span>
+            <br>
+            Đã thanh toán
+        </li>
+        <li>
+            <span class="las la-igloo"></span>
+            <br>
+            Đã hoàn thành
+        </li>
+    </ul>
+    <div id="cancelModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCancelModal()">&times;</span>
+            <p>Chọn nguyên nhân hủy đơn hàng:</p>
+            <select id="cancelReason">
+                <option value="Sản phẩm không phù hợp">Sản phẩm không khả dụng</option>
+                <option value="Thay đổi quyết định">Thay đổi quyết định</option>
+                <option value="Tôi đã tìm thấy sản phẩm tốt hơn">Tìm thấy sản phẩm tốt hơn</option>
+                <option value="Lý do khác">Lý do khác</option>
+            </select>
+            <button onclick="sendCancelReason()">Gửi lý do hủy</button>
         </div>
     </div>
-</main>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p id="confirmationMessage">Chờ xác nhận hủy đơn hàng...</p>
+        </div>
+    </div>
 
 
 
-                <div id="footer">
-                    <div class="link-content">
-                        <h3>Thông Tin Liên Hệ</h3>
-                        <ul>
-                         
-                            <li><a href="">Giới thiệu store</a></li>
-                            <li><a href="">Chăm sóc khách hàng</a></li>
-                            <li><a href="">Tin tức</a></li>
-                            <li><a href="">Liên hệ hợp tác</a></li>
-                            <li><a href="">Ý kiến khách hàng</a></li>
-                        </ul>
-                    </div>
-              
-                    <div class="link-content">
-                        <h3>Dịch Vụ - Hỗ Trợ</h3>
-                        <ul>
-                            <li><a href="">Mua hàng trả góp</a></li>
-                            <li><a href="">Chính sách bảo hành</a></li>
-                            <li><a href="">Chính sách bảo mật</a></li>
-                            <li><a href="">Chính sách giải quyết khiếu nại</a></li>
-                            <li><a href="">Câu hỏi thường gặp</a></li>
-                        </ul>
-                    </div>
-              
-                    <div class="link-content">
-                        <h3>Thông tin khuyến mãi</h3>
-                        <ul>
-                            <li><a href="">Sản phẩm bán chạy</a></li>
-                            <li><a href="">Sản phẩm khuyến mãi</a></li>
-                            <li><a href="">Hàng thanh lý</a></li>
-                            <li><a href="">Liên hệ khối văn phòng</a></li>
-                        </ul>
-                    </div>
-                    <div class="link-content">
-                      <div class="icon">
-                        <h3>Follow us</h3>
-                        <a href="https://www.instagram.com/tnmminh/" >
-                          <img src="icon1.jpg" width="50px" height="50px">
-                        </a>
-                        <a href="https://www.facebook.com/minh.tnm/" >
-                          <img src="icon2.jpg" width="50px" height="50px">
-                        </a>
-                        <a href="https://www.facebook.com/minh.tnm/" >
-                          <img src="icon3.jpg" width="50px" height="50px">
-                        </a>
-                        </div>
-                        
-              
-                        <div class="footer-bottom">
-                          <div class="footer-banquyen">
-                              <div class="banquyen" style="font-size: 20px; color: #ffffff;">Bản quyền của Công ty TNHH Thương mại & Tin học Tú Nguyệt</div>
-                          </div>
-                      </div>
-                    </div>
-                    <script src="doan.js"></script>
-                    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>   
-                    <script>
-        function myFunction() {
-  // Declare variables
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("mySearch");
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myMenu");
-  li = ul.getElementsByTagName("li");
+    <div class="product-info">
+        <p>Thông tin sản phẩm đã mua:</p>
+        <img src="sp10x.png" alt="Product Image" width="200px" height="200px">
+        <p>Tên sản phẩm: Nhẫn Kim Cương 24k Mặt đính đá
+            <br>
+            Kích cỡ: 52mm
+            <br>
+            Số lượng: 1
+            <br>
+            <button onclick="alert('Liên hệ người bán qua sđt:0973471916')">Liên hệ người bán</button>
+            <button onclick="openCancelModal()">Hủy đơn hàng</button>
+        </p>
+    </div>
+    
 
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("p")[0];
-    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
+    <script>
+        function openCancelModal() {
+            var cancelModal = document.getElementById('cancelModal');
+            cancelModal.style.display = 'block';
+        }
+
+        function closeCancelModal() {
+            var cancelModal = document.getElementById('cancelModal');
+            cancelModal.style.display = 'none';
+        }
+
+        function sendCancelReason() {
+    var confirmationModal = document.getElementById('confirmationModal');
+    var cancelReason = document.getElementById('cancelReason').value;
+    var confirmationMessage = document.getElementById('confirmationMessage');
+
+    confirmationMessage.innerText = 'Chờ xác nhận hủy đơn hàng...';
+    confirmationModal.style.display = 'block';
+
+ 
+    setTimeout(function() {
+        confirmationMessage.innerText = 'Đơn hàng đã được gửi cho cửa hàng để xem xét hủy. Lý do: ' + cancelReason;
+
+        setTimeout(function() {
+            confirmationModal.style.display = 'none';
+      
+            window.location.href = 'Practice1-1.htm'; 
+        }, 3000); 
+    }, 3000); 
+
+   
+    closeCancelModal();
 }
-document.addEventListener('click', function (event) {
-    if (!event.target.closest('.search-container')) {
-      searchResults.style.display = 'none';
-    }
-})
-                    </script>
-                </body>
+
+    </script>
+</body>
+</main> 
+
+<div id="footer">
+    <div class="link-content">
+        <h3>Thông Tin Liên Hệ</h3>
+        <ul>
+         
+            <li><a href="">Giới thiệu store</a></li>
+            <li><a href="">Chăm sóc khách hàng</a></li>
+            <li><a href="">Tin tức</a></li>
+            <li><a href="">Liên hệ hợp tác</a></li>
+            <li><a href="">Ý kiến khách hàng</a></li>
+        </ul>
+    </div>
+
+    <div class="link-content">
+        <h3>Dịch Vụ - Hỗ Trợ</h3>
+        <ul>
+            <li><a href="">Mua hàng trả góp</a></li>
+            <li><a href="">Chính sách bảo hành</a></li>
+            <li><a href="">Chính sách bảo mật</a></li>
+            <li><a href="">Chính sách giải quyết khiếu nại</a></li>
+            <li><a href="">Câu hỏi thường gặp</a></li>
+        </ul>
+    </div>
+
+    <div class="link-content">
+        <h3>Thông tin khuyến mãi</h3>
+        <ul>
+            <li><a href="">Sản phẩm bán chạy</a></li>
+            <li><a href="">Sản phẩm khuyến mãi</a></li>
+            <li><a href="">Hàng thanh lý</a></li>
+            <li><a href="">Liên hệ khối văn phòng</a></li>
+        </ul>
+    </div>
+    <div class="link-content">
+      <div class="icon">
+        <h3>Follow us</h3>
+        <a href="https://www.instagram.com/tnmminh/" >
+          <img src="icon1.jpg" width="50px" height="50px">
+        </a>
+        <a href="https://www.facebook.com/minh.tnm/" >
+          <img src="icon2.jpg" width="50px" height="50px">
+        </a>
+        <a href="https://www.facebook.com/minh.tnm/" >
+          <img src="icon3.jpg" width="50px" height="50px">
+        </a>
+        </div>
+        
+
+        <div class="footer-bottom">
+          <div class="footer-banquyen">
+              <div class="banquyen" style="font-size: 20px; color: #ffffff;">Bản quyền của Công ty TNHH Thương mại & Tin học Tú Nguyệt</div>
+          </div>
+      </div>
+    </div>
+  
+</body>
 
 </html>

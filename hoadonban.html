@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>admin </title>
+    <link rel ="stylesheet" href="Admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    </head>
+
+    <body>
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <h2><span class="lab la-book-tanakh"></span><span>Admin</span></h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="Admin.html";="active"><span class="las la-igloo"></span>
+                            <span>Bảng điều khiển</span></a>
+                    </li>
+        
+                    <li>
+                        <a href="sanpham.html"><span class="las la-book-open"></span>
+                            <span>Sản Phẩm</span></a>
+                    </li>
+                    <li>
+                        <a href="baiviet.html"><span class="bx bxs-book-add" ></span>
+                            <span>Quản lý bài viết</span></a>
+                    </li>
+                    <li>
+                        <a href="khachhang.html"><span class="las la-user-circle"></span>
+                            <span>Khách hàng</span></a>
+                    </li>
+                    <li>
+                        <a href="nhanvien.html"><span class="las la-user-circle"></span>
+                            <span>Nhân viên</span></a>
+                    </li>
+                    <li>
+                        <a href="tintuc.html"><span class="bx bx-news"></span>
+                            <span>Tin tức</span></a>
+                    </li>
+                    <li>
+                      <a href="hoadonnhap.html"><span class="bx bx-notepad"></span>
+                        <span>Hóa đơn nhập</span></a>
+                    </li>
+                    <li>
+                        <a href="hoadonban.html"><span class="bx bx-notepad"></span>
+                            <span>Hóa đơn bán</span></a>
+                    </li>
+                    <li>
+                        <a href="Doanh thu.html"><span class="bx bxs-bar-chart-alt-2"></span>
+                            <span>Thống kê</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+          
+            <header>
+                    <h2>
+                        <label for="nav-toggle">
+                            <span class="las la-bars"></span>
+                        </label>
+                        Bảng điều khiển
+                    </h2>
+                    <div class="search-wrapper">
+                        <span class="la la-search"></span>
+                        <input type="search" placeholder="Search here" />
+                    </div>
+                    <div class="user-wrapper">
+                        <img src="anhnenx.jpg" width="40px" height="40px" alt=""/>
+                        <div>
+                            <h4>Ngoc Minh</h4>
+                            <small>Admin</small>
+                        </div>
+                    </div>
+            
+            </header>
+            <main>
+    <title>Hóa đơn Bán Hàng</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: left;
+        }
+        button{
+          background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Hóa Đơn Bán Hàng</h2>
+
+<table id="invoiceTable">
+  <tr>
+    <th>STT</th>
+    <th>Mã hàng</th>
+    <th>Tên hàng</th>
+    <th>ĐVT</th>
+    <th>Số lượng</th>
+    <th>Đơn giá</th>
+    <th>Thành tiền</th>
+    <th>Xóa</th>
+  </tr>
+  <!-- Các hàng sẽ được thêm vào đây bằng JavaScript -->
+</table>
+<select id="itemSelect">
+    <!-- Các tùy chọn sẽ được thêm vào đây bằng JavaScript -->
+  </select>
+<button onclick="addItem()">Thêm mặt hàng</button>
+<button onclick="calculateTotal()">Tính tổng</button>
+
+<p id="total"></p>
+<p id="tax"></p>
+<p id="grandTotal"></p>
+
+
+
+<script>
+var items = [
+  {id: "MH01", name: "Nhẫn KC 18K trắng PNJ 172", unit: "Chiếc", quantity: 1, price: 100000},
+  {id: "MH02", name: "Nhẫn KC 24K mặt đính đá PNJ XXZ", unit: "Chiếc", quantity: 1, price: 700000},
+  {id: "MH03", name: "Vòng tay Kim Cương Mặt Xoàn PNJ 17z", unit: "Chiếc", quantity: 1, price: 100000},
+  {id: "MH04", name: "Vòng tay vàng đính đá PNJ 192", unit: "Chiếc", quantity: 1, price: 100000},
+  {id: "MH05", name: "Nhẫn Kim Cương Trắng 18k PNJ", unit: "Chiếc", quantity: 1, price: 100000},
+  {id: "MH06", name: "Vòng tay bạc đính đá STYLE 24K PNJ XXZ", unit: "Chiếc", quantity: 1, price: 100000},
+  {id: "MH07", name: "Vòng tay Kim Cương Đính Hạt PNJ 17z", unit: "Chiếc", quantity: 1, price: 820000},
+  {id: "MH08", name: "Vòng tay bạc Silver đính đá PNJ 192", unit: "Chiếc", quantity: 1, price: 350000},
+  // Thêm các mặt hàng khác vào đây
+];
+var taxRate = 0.08;  
+var select = document.getElementById("itemSelect");
+  for (var i = 0; i < items.length; i++) {
+    var option = document.createElement("option");
+    option.value = i;
+    option.text = items[i].name;
+    select.add(option);
+  }
+select.addEventListener("change", function() {
+    var selectedIndex = select.value;
+    if (selectedIndex !== "") {
+      var selectedProduct = items[selectedIndex];
+      addSelectedProductToInvoice(selectedProduct);
+    }
+});
+
+function addItem() {
+  var table = document.getElementById("invoiceTable");
+  var row = table.insertRow(-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
+  var cell8 = row.insertCell(7);
+
+// Lấy chỉ mục được chọn từ dropdown
+  var selectedIndex = select.value;
+
+   // Kiểm tra xem có một lựa chọn nào đó được chọn không
+  if (selectedIndex !== "") {
+    // Lấy sản phẩm được chọn từ mảng items
+    var selectedProduct = items[selectedIndex];
+
+      // Điền thông tin của sản phẩm được chọn vào các ô
+    cell1.innerHTML = table.rows.length - 1;
+    cell2.innerHTML = selectedProduct.id;
+    cell3.innerHTML = selectedProduct.name;
+    cell4.innerHTML = selectedProduct.unit;
+    cell5.innerHTML = selectedProduct.quantity;
+    cell6.innerHTML = selectedProduct.price;
+    cell7.innerHTML = "";
+    cell8.innerHTML = "<button onclick='deleteRow(this)'>Xóa</button>";
+  }
+}
+function deleteRow(btn) {
+  var row = btn.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+function calculateTotal() {
+  var table = document.getElementById("invoiceTable");
+  var total = 0;
+  for (var i = 1, row; row = table.rows[i]; i++) {
+    var quantity = parseFloat(row.cells[4].innerText);
+    var price = parseFloat(row.cells[5].innerText);
+    var rowTotal = quantity * price;
+    row.cells[6].innerText = rowTotal;
+    total += rowTotal;
+  }
+  var tax = total * taxRate;
+  var grandTotal = total + tax;
+  document.getElementById("total").innerText = "Tổng cộng: " + total;
+  document.getElementById("tax").innerText = "Thuế VAT(8%): " + tax;
+  document.getElementById("grandTotal").innerText = "Tổng cộng sau thuế: " + grandTotal;
+}
+</script>
+
+</main>
+</html>

@@ -155,14 +155,14 @@ span.price {
         <div class="row">
           <div class="col-50">
             <h3>Thông tin cá nhân</h3>
-            <label for="fname"><i class="fa fa-user"></i> Họ và tên</label>
-            <input type="text" id="fname" name="firstname" placeholder="Trần Ngọc A">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="abc@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Địa chỉ</label>
-            <input type="text" id="adr" name="address" placeholder="Địa chỉ hiện tại">
+            <label for="fname"><i class="fa fa-user"></i> Họ và tên*</label>
+            <input type="text" id="fname" name="firstname" placeholder="Trần Ngọc A"  required>
+            <label for="email"><i class="fa fa-envelope"></i> Email*</label>
+            <input type="text" id="email" name="email" placeholder="abc@example.com"  required>
+            <label for="adr"><i class="fa fa-address-card-o"></i> Địa chỉ*</label>
+            <input type="text" id="adr" name="address" placeholder="Địa chỉ hiện tại"  required>
             <label for="city"><i class="fa fa-institution"></i> Thành Phố</label>
-            <input type="text" id="city" name="city" placeholder="Nhập thành phố đang ở">
+            <input type="text" id="city" name="city" placeholder="Nhập thành phố đang ở"required>
 
             <div class="row">
               <div class="col-50">
@@ -184,24 +184,25 @@ span.price {
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
             <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="Tên của chủ thẻ">
+            <input type="text" id="cname" name="cardname" placeholder="Tên của chủ thẻ" required>
             <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="Dãy 12-16 số của thẻ">
+            <input type="text" id="ccnum" name="cardnumber" placeholder="Dãy 12-16 số của thẻ" required>
             <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="Hạn sử dụng của thẻ">
+            <input type="text" id="expmonth" name="expmonth" placeholder="Hạn sử dụng của thẻ" required>
             <div class="row">
               <div class="col-50">
                 <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="Năm hết hạn">
+                <input type="text" id="expyear" name="expyear" placeholder="Năm hết hạn" required>
               </div>
               <div class="col-50">
                 <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="3 số ở sau thẻ">
+                <input type="text" id="cvv" name="cvv" placeholder="3 số ở sau thẻ" required>
               </div>
             </div>
           </div>
           
         </div>
+        
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Địa chỉ giao hàng giống như địa chỉ thanh toán
         </label>
@@ -219,58 +220,52 @@ span.price {
     <input type="submit" value="Tiếp tục thanh toán" class="btn" onclick="showSuccessModal()">
 </div>
 
-<!-- Modal (Thông báo) -->
+
 
 </div>
 
-   <!--
-  <div class="col-25">
-    <img src="sp10x.png" width="111px" height="120px" alt="Image 1" style="font-size: 14px; line-height: 14px;  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
-    <div style="margin-top: 10px;">
-        <a style="font-size: 15px; font-weight: bold; cursor: pointer; margin-left: 20px;">Nhẫn Kim Cương Trắng 18k PNJ 172</a>
-        <br>
-        <span style="margin-left: 75px;">100.000 VND</span>
 
-        Thêm thông tin về kích thước 
-        <div style="margin-top: 5px;">
-            <span>Kích thước:</span>
-            <select style="margin-left: 70px;">
-                <option value="51">51</option>
-                <option value="52">52</option>
-                <option value="53">53</option>
-            </select>
-        </div>
-
-        Thêm thông tin sản phẩm 
-        <p style="margin-top: 10px;">
-            Mô tả sản phẩm:Vòng tay Vàng 10K đính đá ECZ PNJ Niềm tin XMXMH000111
-            Mã: GVXMXMH000111
-        <br>
-        100.000
-            
-        </p>
-
-         Nút Mua ngay và ô nhập số lượng 
-        <div style="margin-top: 10px;">
-        <a href="thanhtoan.html">    <button class="buy-item" style="margin-left: 55px;">Mua ngay</button> </a>
-           <span>Số lượng: <input class="quantity-input" type="number" value="1" min="0"></span>
-             
-        </div>-->
   </div>
 </div>
 <script>
 
-    function showSuccessModal() {
-        // Lấy tham chiếu đến modal và hiển thị nó
-        var modal = document.getElementById('successModal');
-        modal.style.display = 'block';
+function showSuccessModal() {
+    // Lấy giá trị của các trường bắt buộc
+    var fnameValue = document.getElementById('fname').value;
+    var emailValue = document.getElementById('email').value;
+    var adrValue = document.getElementById('adr').value;
+    var cityValue = document.getElementById('city').value;
+    var cnameValue = document.getElementById('cname').value;
+    var cnumValue = document.getElementById('ccnum').value; 
+    var expmonthValue = document.getElementById('expmonth').value;
+    var expyearValue = document.getElementById('expyear').value;
+    var cvvValue = document.getElementById('cvv').value;
 
-   
-        setTimeout(function () {
-            modal.style.display = 'none';
-        }, 2000);
+    // Kiểm tra xem tất cả các trường bắt buộc đã được điền đầy đủ hay chưa
+    if (
+      fnameValue.trim() !== '' &&
+      emailValue.trim() !== '' &&
+      adrValue.trim() !== '' &&
+      cityValue.trim() !== '' &&
+      cnameValue.trim() !== '' &&
+      cnumValue.trim() !== '' &&
+      expmonthValue.trim() !== '' &&
+      expyearValue.trim() !== '' &&
+      cvvValue.trim() !== ''
+    ) {
+      // Nếu đã điền đủ, hiển thị modal
+      var modal = document.getElementById('successModal');
+      modal.style.display = 'block';
+
+      // Tự động đóng modal sau 2 giây
+      setTimeout(function () {
+        modal.style.display = 'none';
+        window.location.replace('test.html');
+      }, 2000);
+    } else {
+      alert('Vui lòng điền đầy đủ thông tin bắt buộc.');
     }
-  
+  }
 </script>
 </body>
 </html>

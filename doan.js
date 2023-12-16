@@ -38,18 +38,7 @@ function showSlides() {
   }
 
   // Function to add item to the cart
-  function addToCart() {
-      // Get product details
-      var productName = "ABC";
-      var productPrice = 19.99;
 
-      // Create a new list item for the cart
-      var listItem = document.createElement("li");
-      listItem.textContent = productName + " - $" + productPrice;
-
-      // Append the list item to the cart
-      document.getElementById("cart").appendChild(listItem);
-  }
   function showcart(){
     var x= document.getElementById("showcart")
     if(x.style.display=="none"){
@@ -138,5 +127,4 @@ function deletecart(){
         })
     }
 }
-
 

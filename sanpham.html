@@ -20,10 +20,7 @@
 							<a href="Admin.html";="active"><span class="las la-igloo"></span>
 								<span>Bảng điều khiển</span></a>
 						</li>
-						<li>
-							<a href="quantrivien.html"><span class="las la-users"></span>
-								<span>Quản trị viên</span></a>
-						</li>
+			
 						<li>
 							<a href="sanpham.html"><span class="las la-book-open"></span>
 								<span>Sản Phẩm</span></a>
@@ -32,14 +29,25 @@
 							<a href="baiviet.html"><span class="bx bxs-book-add" ></span>
 								<span>Quản lý bài viết</span></a>
 						</li>
-			   
+						<li>
+							<a href="khachhang.html"><span class="las la-user-circle"></span>
+								<span>Khách hàng</span></a>
+						</li>
 						<li>
 							<a href="nhanvien.html"><span class="las la-user-circle"></span>
 								<span>Nhân viên</span></a>
 						</li>
 						<li>
-							<a href=""><span class="bx bx-news"></span>
+							<a href="tintuc.html"><span class="bx bx-news"></span>
 								<span>Tin tức</span></a>
+						</li>
+						<li>
+							<a href="hoadonnhap.html"><span class="bx bx-notepad"></span>
+								<span>Hóa đơn nhập</span></a>
+						</li>
+						<li>
+							<a href="hoadonban.html"><span class="bx bx-notepad"></span>
+								<span>Hóa đơn bán</span></a>
 						</li>
 						<li>
 							<a href="Doanh thu.html"><span class="bx bxs-bar-chart-alt-2"></span>
@@ -76,8 +84,8 @@
     
 			<div id="right">
 				<span><i class="ti-arrow-circle-right"></i> Quản lý sản phẩm</span><br><br><br>
-				<input type="button" value="thêm "></input>
-				<input type="button" value="xoá "></input>
+				<input type="button" value="Thêm " onclick="addProduct()"></input>
+				<input type="button" value="Xoá " onclick="deleteSelected()"></input>
 				<table cellspacing="0" >
 					<tr id="tr1">
 						<th>STT</th>
@@ -99,7 +107,7 @@
 						<td>09/03/2023</td>
 						
 					</tr>
-					<tr>
+					<tr class="trxam">
 						<td>2</td>
 						<td><input type="checkbox"></input></td>
 						<td>PNJ127</td>
@@ -119,7 +127,7 @@
 						<td>09/03/2023</td>
 						
 					</tr>
-					<tr>
+					<tr class="trxam">
 						<td>4</td>
 						<td><input type="checkbox"></input></td>
 						<td>PNJ211</td>
@@ -139,7 +147,7 @@
 						<td>09/03/2023</td>
 						
 					</tr>
-					<tr>
+					<tr class="trxam">
 						<td>6</td>
 						<td><input type="checkbox"></input></td>
 						<td>PNJ190</td>
@@ -159,7 +167,7 @@
 						<td>09/03/2023</td>
 						
 					</tr>
-					<tr>
+					<tr class="trxam">
 						<td>8</td>
 						<td><input type="checkbox"></input></td>
 						<td>PNJ192</td>
@@ -175,5 +183,32 @@
             </div>
         </div>
     </div>
+	<script>
+		function addProduct() {
+		  // Add your logic to handle adding a product here
+		  alert("Thêm sản phẩm");
+		}
+	
+		function deleteSelected() {
+		  // Get all checkboxes with class "trxam" that are checked
+		  let checkboxes = document.querySelectorAll('.trxam input[type="checkbox"]:checked');
+	
+		  // Loop through the selected checkboxes and remove their parent rows
+		  checkboxes.forEach(checkbox => {
+			let row = checkbox.closest('tr');
+			row.remove();
+		  });
+		}
+	
+		function selectAll() {
+		  // Add your logic to handle selecting/deselecting all checkboxes here
+		  let checkboxes = document.querySelectorAll('.trxam input[type="checkbox"]');
+		  let selectAllCheckbox = document.getElementById('selectAll');
+		  
+		  checkboxes.forEach(checkbox => {
+			checkbox.checked = selectAllCheckbox.checked;
+		  });
+		}
+	  </script>
 </body>
 </html>
